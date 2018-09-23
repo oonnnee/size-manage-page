@@ -1,0 +1,39 @@
+{
+  "name": "size-manage-page",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:oonnnee/size-manage-page.git",
+  "license": "MIT",
+  "scripts": {
+    "build_win": "set WEBPACK_ENV=online&& node_modules/.bin/webpack -p",
+    "build": "WEBPACK_ENV=online node_modules/.bin/webpack -p",
+    "server": "node_modules/.bin/webpack-dev-server"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-loader": "7.1.2",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-react": "6.24.1",
+    "css-loader": "0.28.8",
+    "extract-text-webpack-plugin": "3.0.2",
+    "file-loader": "1.1.6",
+    "html-webpack-plugin": "2.30.1",
+    "node-sass": "4.7.2",
+    "sass-loader": "6.0.6",
+    "style-loader": "0.19.1",
+    "url-loader": "0.6.2",
+    "webpack": "3.10.0",
+    "webpack-dev-server": "2.9.7"
+  },
+  "dependencies": {
+    "flat-ui": "^2.1.1",
+    "layui-src": "^2.3.0",
+    "prop-types": "15.6.0",
+    "rc-checkbox": "2.1.5",
+    "rc-pagination": "1.15.1",
+    "rc-select": "8.0.9",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-router-dom": "4.2.2"
+  }
+}
