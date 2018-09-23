@@ -97,7 +97,7 @@ class ProductManage extends React.Component {
                             <i className="fa fa-arrow-up"></i>
                             <span>导入客户淘宝信息</span>
                         </button>
-                        <a href="localhost:8080/manage/export/size" className="btn btn-primary" target="_blank">
+                        <a href="http://47.100.247.103:8080/manage/export/size" className="btn btn-primary" target="_blank">
                             <i className="fa fa-arrow-down"></i>
                             <span>导出尺码信息</span>
                         </a>
