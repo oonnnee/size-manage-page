@@ -3,6 +3,7 @@ import React from 'react';
 import PageTitle from 'page/part/page-title.jsx';
 import DataGrid from 'page/part/data-grid.jsx';
 import Pagination from 'page/part/pagination.jsx';
+import Search from 'page/size/size-page-search.jsx';
 
 import SizeService from 'service/size-service.jsx';
 import AppUtil from 'util/app-util.jsx';
@@ -21,7 +22,8 @@ class ProductManage extends React.Component {
             totalPages: 0,
             number: 0,
             size: 20,
-            type: 'page'
+            searchType: 'all',
+            searchKeyword: ''
         };
     }
 
@@ -102,7 +104,7 @@ class ProductManage extends React.Component {
                             <span>导出尺码信息</span>
                         </a>
                     </PageTitle>
-                    {/*<Search onSearch={(PCodes, name) => {this.onSearch(PCodes, name)}}/>*/}
+                    <Search onSearch={(searchType, searchKeyword) => {this.onSearch(searchType, searchKeyword)}}/>
                     <DataGrid tableHeads={tableHeads}>
                         {
                             this.state.content.map((customer, index) => {
@@ -188,14 +190,11 @@ class ProductManage extends React.Component {
     // 加载客户列表
     loadList() {
         let param = {};
-        param.type = this.state.type;
         param.page = this.state.number;
         param.size = this.state.size;
-        // 如果是搜索的话，需要传入搜索类型和搜索关键字
-        if (this.state.type === 'search') {
-            param.name = this.state.name;
-        }
-        // 请求接口
+        param.filter = this.state.searchType;
+        param.value = this.state.searchKeyword;
+
         sizeService.page(param).then(data => {
             this.setState(data);
         }, errMsg => {
@@ -207,16 +206,11 @@ class ProductManage extends React.Component {
     }
 
     // // 搜索
-    onSearch(PCodes, name){
-        let type = 'search';
-        if (PCodes==='' && name===''){
-            type = 'list';
-        }
+    onSearch(searchType, searchKeyword){
         this.setState({
-            type: type,
             number: 0,
-            PCodes: PCodes,
-            name: name
+            searchType: searchType,
+            searchKeyword: searchKeyword
         }, () => {
             this.loadList();
         });
