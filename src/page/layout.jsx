@@ -6,6 +6,7 @@ import NavSide from 'layout/nav-side.jsx';
 import Home from 'page/home.jsx';
 
 import SizePage from 'page/size/size-page.jsx';
+import CustomerInfoPage from 'page/customer-info/customer-info-page.jsx';
 
 import Setting from 'page/setting/setting.jsx';
 
@@ -27,6 +28,7 @@ class Layout extends React.Component{
                         <Route exact path="/" component={SizePage}/>
 
                         <Route exact path="/size" component={SizePage}/>
+                        <Route exact path="/customer-info" component={CustomerInfoPage}/>
 
                         <Route exact path="/setting" component={Setting}/>
                         <Route exact path="/user/updatePwd" component={UserPwdUpdate}/>

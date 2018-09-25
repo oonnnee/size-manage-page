@@ -7,11 +7,18 @@ const appUtil = new AppUtil();
 
 class SizeService {
 
-    // 用户登录
-    page(param){
+    pageRaw(param){
         return appUtil.request({
             type    : 'get',
-            url     : '/customer-info/page',
+            url     : '/customer-info/page-raw',
+            data    : param
+        });
+    }
+
+    pageProcess(param){
+        return appUtil.request({
+            type    : 'get',
+            url     : '/customer-info/page-process',
             data    : param
         });
     }

@@ -96,7 +96,7 @@ class AppUtil{
             跳转到主页
     -------------------------------*/
     redirectToIndex(){
-        window.location.href = '/size';
+        window.location.href = '/customer-info';
     }
 
     getDeployAddress(){

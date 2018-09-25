@@ -23,7 +23,10 @@ class NavSide extends React.Component{
                             {/*<NavLink exact activeClassName="active-menu" to="/"><i className="fa fa-home"></i>主页</NavLink>*/}
                         {/*</li>*/}
                         <li>
-                            <NavLink activeClassName="active-menu" to="/size"><i className="fa fa-bars"></i>尺码</NavLink>
+                            <NavLink activeClassName="active-menu" to="/customer-info"><i className="fa fa-bars"></i>原始数据页</NavLink>
+                        </li>
+                        <li>
+                            <NavLink activeClassName="active-menu" to="/size"><i className="fa fa-bars"></i>尺码生成页</NavLink>
                         </li>
                         <li>
                             <NavLink activeClassName="active-menu" to="/setting"><i className="fa fa-cog"></i>设置</NavLink>

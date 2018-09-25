@@ -2,25 +2,31 @@ import React from 'react';
 
 import PageTitle from 'page/part/page-title.jsx';
 import SettingRange from 'page/setting/setting-range.jsx';
+import MySwitch from 'page/setting/my-switch.jsx';
 
 import AppUtil from 'util/app-util.jsx';
 import TrialService from 'service/trial-service.jsx';
+import SettingService from 'service/setting-service.jsx';
 
 const appUtil = new AppUtil();
 const trialService = new TrialService();
+const settingService = new SettingService();
 
 class Setting extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             trialList: [],
-            ableTrialList: []
+            ableTrialList: [],
+
+            setting:[],
         };
     }
 
     componentDidMount() {
         this.loadTrialList();
         this.loadAbleTrialList();
+        this.loadAvg();
     }
 
     loadTrialList() {
@@ -37,6 +43,18 @@ class Setting extends React.Component {
         trialService.able().then(data => {
             this.setState({
                 ableTrialList: data
+            });
+        }, errMsg => {
+            appUtil.errorTip(errMsg);
+        });
+    }
+
+    loadAvg(){
+        settingService.isAvgOpen().then(data => {
+            let setting = [];
+            setting.push(data);
+            this.setState({
+                setting: setting
             });
         }, errMsg => {
             appUtil.errorTip(errMsg);
@@ -134,6 +152,14 @@ class Setting extends React.Component {
         }
     }
 
+    onSwitchChange(event, state){
+        settingService.updateAvg(state).then(() => {
+
+        }, errMsg => {
+            appUtil.errorTip(errMsg);
+        });
+    }
+
     render() {
         return (
             <div id="page-wrapper">
@@ -203,6 +229,22 @@ class Setting extends React.Component {
                             <div className="row">
                                 <div className="col-md-12">
                                     <button className="btn btn-default btn-lg btn-block" onClick={() => {this.onSave()}}>保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="panel panel-default">
+                        <div className="panel-heading">其它设置</div>
+                        <div className="panel-body">
+                            <div className="row">
+                                <div className="col-md-1">均码</div>
+                                <div className="col-md-1">
+                                    {
+                                        this.state.setting.map((s, index) => {
+                                            return (<MySwitch state={s} onSwitchChange={(event, state) => {this.onSwitchChange(event, state)}}/>);
+                                        })
+                                    }
                                 </div>
                             </div>
                         </div>
