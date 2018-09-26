@@ -77,6 +77,7 @@ class CustomerInfoPage extends React.Component {
             showUpload: true,
             showRemove: true,
             showClose: true,
+            showPreview :false,
             maxFileCount: 1, //表示允许同时上传的最大文件个数
             msgFilesTooMany: '最多上传一个',
             allowedFileExtensions: ['xls', 'xlsx'],//接收的文件后缀
