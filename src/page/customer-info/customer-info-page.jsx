@@ -184,7 +184,7 @@ class CustomerInfoPage extends React.Component {
         param.filter = this.state.searchType;
         param.value = this.state.searchKeyword;
 
-        sizeService.pageRaw(param).then(data => {
+        sizeService.page(param).then(data => {
             this.setState(data);
         }, errMsg => {
             this.setState({

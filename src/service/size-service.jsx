@@ -7,6 +7,14 @@ const appUtil = new AppUtil();
 
 class SizeService {
 
+    page(param){
+        return appUtil.request({
+            type    : 'get',
+            url     : '/customer-info/page',
+            data    : param
+        });
+    }
+
     pageRaw(param){
         return appUtil.request({
             type    : 'get',
