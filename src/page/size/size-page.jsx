@@ -75,7 +75,7 @@ class SizePage extends React.Component {
             <div id="page-wrapper">
                 <div id="page-inner">
                     <PageTitle title="尺码生成页">
-                        <a href="http://47.100.247.103:8080/manage/export/size" className="btn btn-primary" target="_blank">
+                        <a href="http://measure.justalit.com:8080/manage/export/size" className="btn btn-primary" target="_blank">
                             <i className="fa fa-arrow-down"></i>
                             <span>导出尺码信息</span>
                         </a>
