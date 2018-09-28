@@ -89,7 +89,10 @@ class CustomerInfoPage extends React.Component {
         }).on("fileuploaded",(event, data)  => {
             appUtil.successTip('导入成功');
             $('#uploadModal').modal('hide');
-            location.href = '/size';
+            setTimeout(() => {
+                location.href = '/size';
+            }, 800)
+
         });
         return (
             <div id="page-wrapper">
