@@ -144,7 +144,10 @@ class Setting extends React.Component {
 
             if (!pass) return;
 
+            const index = appUtil.loading();
+
             trialService.save(JSON.stringify(this.state.ableTrialList)).then(() => {
+                layer.close(index);
                 appUtil.successTip('保存成功')
             }, errMsg => {
                 appUtil.errorTip(errMsg);
@@ -153,8 +156,10 @@ class Setting extends React.Component {
     }
 
     onSwitchChange(event, state){
+        const index = appUtil.loading();
         settingService.updateAvg(state).then(() => {
-
+            layer.close(index);
+            appUtil.successTip('修改成功');
         }, errMsg => {
             appUtil.errorTip(errMsg);
         });

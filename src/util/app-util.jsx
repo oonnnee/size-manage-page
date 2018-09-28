@@ -49,7 +49,14 @@ class AppUtil{
             成功提示
     -------------------------------*/
     successTip(msg){
-        alert(msg || '成功')
+        layer.msg(msg);
+        // alert(msg || '成功')
+    }
+
+    loading(){
+        return layer.load(1,{
+            shade: [0.8, '#393D49']
+        });
     }
 
     /*-------------------------------

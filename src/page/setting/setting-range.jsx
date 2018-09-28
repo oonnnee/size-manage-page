@@ -117,8 +117,11 @@ class SettingRange extends React.Component {
 
             if (!pass) return;
 
+            const index = appUtil.loading();
+
             rangeService.save(JSON.stringify(this.state.able)).then(() => {
                 rangeService.save(JSON.stringify(this.state.unable)).then(() => {
+                    layer.close(index);
                     appUtil.successTip('保存成功')
                 }, errMsg => {
                     appUtil.errorTip(errMsg);

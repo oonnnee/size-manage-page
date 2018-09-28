@@ -4,7 +4,7 @@ class Search extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            searchType      : 'bigSize', //  phone / smallSize / bigSize / tbName
+            searchType      : 'phone', //  phone / smallSize / bigSize / tbName
             searchKeyword   : ''
         }
     }
